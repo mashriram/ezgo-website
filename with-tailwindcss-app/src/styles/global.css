@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: sans-serif;
+    background: linear-gradient(135deg, #f0f2f5, #e3f2fd);
+}
+
+.skeuo-card {
+    @apply bg-white rounded-xl p-6 shadow-lg transition-shadow hover:shadow-xl relative;
+    /* Light grey background, rounded edges, slight shadow */
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    /* Subtle shadows */
+    background-image: linear-gradient(to bottom right, #f0f0f0, #ffffff);
+    /* subtle texture */
+
+
+}
+
+.skeuo-table {
+    @apply min-w-full border border-gray-300;
+}
+
+.skeuo-table thead tr {
+    @apply bg-gray-200 text-gray-700;
+}
+
+.skeuo-table th,
+.skeuo-table td {
+    @apply p-3 border;
+}
+
+.skeuo-button {
+    @apply px-4 py-2 rounded-md text-white font-semibold transition-colors;
+    background-image: linear-gradient(to bottom, #3490dc, #2779bd);
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+
+    /* Subtle button effect */
+}
+
+.skeuo-button:hover {
+    background-image: linear-gradient(to bottom, #3c8ac6, #2164a3)
+}
+
+/* Additional color related classes that we will use in our components */
+.primary-color {
+    color: #003974;
+    /* Dark blue */
+}
+
+.secondary-color {
+    color: #4a4a4a
+}
+
+.primary-bg {
+    background-color: #003974;
+}
+
+.accent-color {
+    color: #cc3131
+}
