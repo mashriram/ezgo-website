@@ -1,9 +1,12 @@
 import React from 'react';
+import { useTheme } from '../context/ThemeContext';
+
 
 const Table = ({ headers, rows }) => {
+    const { theme } = useTheme()
     return (
         <div className="overflow-x-auto">
-            <table className="skeuo-table">
+            <table className={`skeuo-table ${theme === 'dark' ? 'dark' : ''} `}>
                 <thead>
                     <tr >
                         {headers.map((header, index) => (

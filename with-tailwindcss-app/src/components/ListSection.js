@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import Accordion from './Accordion';
 
 const ListSection = ({ heading, description, points, className }) => {
     return (
@@ -8,14 +9,13 @@ const ListSection = ({ heading, description, points, className }) => {
             {description && <p className="text-center mb-4">{description}</p>}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {points.map((point, index) => (
-                    <Card key={index} className="flex items-start">
-                        <span className="accent-color mr-2 inline-block mt-1 min-w-[10px] flex-none">•</span>
-                        <span className="flex-1" >{point}</span>
+                    <Card key={index}>
+                        <Accordion title={point.title} content={point.content} />
                     </Card>
                 ))}
             </div>
         </section>
-    )
-}
+    );
+};
 
 export default ListSection;

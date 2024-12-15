@@ -5,31 +5,50 @@
 body {
     font-family: sans-serif;
     background: linear-gradient(135deg, #f0f2f5, #e3f2fd);
+    transition: background 0.3s ease;
+}
+
+body.dark {
+    background: linear-gradient(135deg, #333333, #1a1a1a);
 }
 
 .skeuo-card {
-    @apply bg-white rounded-xl p-6 shadow-lg transition-shadow hover:shadow-xl relative;
-    /* Light grey background, rounded edges, slight shadow */
+    @apply rounded-xl p-6 shadow-lg transition-shadow hover:shadow-xl relative;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.1), 0 4px 8px 0 rgba(0, 0, 0, 0.1);
-    /* Subtle shadows */
     background-image: linear-gradient(to bottom right, #f0f0f0, #ffffff);
-    /* subtle texture */
+    transition: background 0.3s ease;
+}
 
-
+.skeuo-card.dark {
+    background-image: linear-gradient(to bottom right, #333333, #000000)
 }
 
 .skeuo-table {
     @apply min-w-full border border-gray-300;
 }
 
+.skeuo-table.dark {
+    @apply min-w-full border border-gray-600;
+}
+
 .skeuo-table thead tr {
     @apply bg-gray-200 text-gray-700;
+}
+
+.skeuo-table.dark thead tr {
+    @apply bg-gray-700 text-white;
 }
 
 .skeuo-table th,
 .skeuo-table td {
     @apply p-3 border;
 }
+
+.skeuo-table.dark th,
+.skeuo-table.dark td {
+    @apply p-3 border border-gray-600;
+}
+
 
 .skeuo-button {
     @apply px-4 py-2 rounded-md text-white font-semibold transition-colors;
@@ -49,14 +68,39 @@ body {
     /* Dark blue */
 }
 
+.dark .primary-color {
+    color: #65b5ff
+}
+
 .secondary-color {
     color: #4a4a4a
+}
+
+.dark .secondary-color {
+    color: #b3b3b3;
 }
 
 .primary-bg {
     background-color: #003974;
 }
 
+.dark .primary-bg {
+    background-color: #333333
+}
+
 .accent-color {
     color: #cc3131
+}
+
+.dark .accent-color {
+    color: #e64a4a
+}
+
+/* added style to provide a default white background */
+.bg-white {
+    background-color: #ffffff
+}
+
+.dark .bg-white {
+    background-color: #000000;
 }

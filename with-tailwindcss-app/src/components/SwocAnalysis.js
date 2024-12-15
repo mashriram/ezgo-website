@@ -1,7 +1,9 @@
 import React from 'react';
 import Card from './Card';
+import { useTheme } from '../context/ThemeContext';
 
 const SwocAnalysis = ({ heading, strengths, weaknesses, opportunities, challenges, backgroundImage }) => {
+    const { theme } = useTheme()
     return (
         <section className="mb-12" id="swoc" style={{ backgroundImage: backgroundImage ? `url(${backgroundImage})` : 'none', backgroundSize: "cover", backgroundRepeat: "no-repeat", backgroundPosition: "center" }}>
             <h3 className="text-3xl font-semibold mb-6 secondary-color text-center">{heading}</h3>

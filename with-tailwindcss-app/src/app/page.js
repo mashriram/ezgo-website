@@ -12,6 +12,9 @@ import Footer from '../components/Footer';
 import Table from '../components/Table';
 import Card from '../components/Card';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useTheme } from '../context/ThemeContext';
+
 
 const fadeInVariants = {
   initial: { opacity: 0, y: 50 },
@@ -39,8 +42,9 @@ const staggerItemVariants = {
 };
 
 export default function HomePage() {
+  const { theme } = useTheme();
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className={`flex flex-col min-h-screen ${theme === 'dark' ? 'dark' : ''}`}>
       <Header
         appName={config.app.name}
         navLinks={config.navLinks}
@@ -53,6 +57,7 @@ export default function HomePage() {
         logo={config.app.logo}
         backgroundImage="/ezgo-hero-bg.png"
       />
+
       <main className="container mx-auto py-12 px-4">
         <motion.section
           initial="initial"
@@ -62,21 +67,28 @@ export default function HomePage() {
           transition={{ duration: 0.6 }}
           className="mb-12"
         >
-          <h3 className="text-3xl font-semibold mb-6 secondary-color text-center">{config.solution.heading}</h3>
-          <p className="text-center mb-4">{config.solution.description}</p>
-          <motion.ul
-            variants={staggerContainerVariants}
-            initial="hidden"
-            whileInView="show"
-            className="space-y-2"
-          >
-            {config.solution.features.map((feature, index) => (
-              <motion.li key={index} variants={staggerItemVariants} className="ml-6 mb-2 text-gray-800 flex items-start">
-                <span className="accent-color mr-2 inline-block mt-1 min-w-[10px] flex-none">•</span>
-                <span className="flex-1" >{feature}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
+          <div className="flex flex-col md:flex-row gap-8">
+            <div className="md:w-1/2">
+              <h3 className="text-3xl font-semibold mb-6 secondary-color text-center md:text-left">{config.solution.heading}</h3>
+              <p className="text-center mb-4 md:text-left">{config.solution.description}</p>
+              <motion.ul
+                variants={staggerContainerVariants}
+                initial="hidden"
+                whileInView="show"
+                className="space-y-2"
+              >
+                {config.solution.features.map((feature, index) => (
+                  <motion.li key={index} variants={staggerItemVariants} className="ml-6 mb-2 text-gray-800 flex items-start">
+                    <span className="accent-color mr-2 inline-block mt-1 min-w-[10px] flex-none">•</span>
+                    <span className="flex-1" >{feature}</span>
+                  </motion.li>
+                ))}
+              </motion.ul>
+            </div>
+            <div className="md:w-1/2">
+              <Image src="/ezgo-product.png" alt="ezgo-product" width={400} height={300} className="mx-auto max-w-full" />
+            </div>
+          </div>
         </motion.section>
         <motion.section
           initial="initial"

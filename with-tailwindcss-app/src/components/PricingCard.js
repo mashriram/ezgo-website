@@ -1,10 +1,12 @@
 import React from 'react';
 import Card from './Card';
 import Button from './Button';
+import { useTheme } from '../context/ThemeContext';
 
 const PricingCard = ({ title, price, features, buttonText }) => {
+    const { theme } = useTheme();
     return (
-        <Card className="flex-1 min-w-[250px] text-gray-700">
+        <Card className={`flex-1 min-w-[250px] text-gray-700 ${theme === 'light' ? 'bg-white' : ''}`}>
             <h4 className="text-xl font-semibold mb-2 text-center secondary-color">{title}</h4>
             <div className="text-center">
                 <span className="text-3xl font-bold accent-color">{price}</span>
